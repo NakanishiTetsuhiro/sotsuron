@@ -1,0 +1,87 @@
+@charset "utf-8";
+
+/*-------------------
+  bootstrap_reset
+--------------------*/
+/*.container-fluid {
+  padding-right: 0;
+   padding-left: 0;
+}*/
+
+.block-label {
+  display: block;
+}
+
+label {
+  color: #333;
+}
+
+/*------------------
+  COMMON
+-------------------*/
+body {
+  color: #E0E2E3;
+}
+
+/*------------------
+  .top
+-------------------*/
+.top {
+  width: 100%;
+  background: url("../img/dammy/MN_ohana_64_6.jpg") no-repeat;
+  -webkit-background-size: cover;
+       -o-background-size: cover;
+          background-size: cover;
+}
+
+header {
+  background-color: rgba(40,52,55,0.9);
+}
+
+.inner_top {
+  background-color: rgba(92,140,148,0.78);
+}
+
+.inner_top .container {
+  padding-top: 126px;
+  padding-bottom: 126px;
+}
+
+.inner_top .container h1 {
+  margin-bottom: 24px;
+}
+
+.inner_top .container p {
+  margin-bottom: 48px;
+}
+/*------------------
+  description
+-------------------*/
+.description {
+  background-color: #F7F7F7;
+  color: #0243A0;
+}
+
+/*------------------
+  #setting (setting.html)
+-------------------*/
+#setting .top {
+  margin-bottom: 20px;
+}
+
+ .item-box {
+  padding: 16px;
+  margin-bottom: 24px;
+  border: 4px solid;
+  -webkit-border-radius: 8px;
+          border-radius: 8px;
+}
+
+
+/*------------------
+  footer
+-------------------*/
+.copy{
+  color: #ee8322;
+}
+

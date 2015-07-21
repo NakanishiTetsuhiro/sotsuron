@@ -1,0 +1,57 @@
+body {
+  font-family: Tahoma, "メイリオ", Meiryo, "ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro", Osaka, "ＭＳ Ｐゴシック", sans-serif;
+  /*font-family: 'Kozuka Gothic Pro B', 'Hiragino Kaku Gothic ProN';*/
+  color: #262626;
+}
+
+.content-print {
+  top:0 !IMPORTANT;
+  left:0 !IMPORTANT;
+  width:172mm !IMPORTANT;
+  height:251mm !IMPORTANT;
+  padding: 24px;
+  border: 8px solid;
+  /*background: #EE8322;*/
+  /*line-height: 1.6em;*/
+}
+
+.store_name {
+  text-align: center;
+  font-size: 56px;
+}
+
+.inner_box {
+  float: left;
+  width: 50%;
+}
+
+.container {
+  overflow: hidden;
+}
+
+/* clearfix */
+.container:before, .container:after {
+  content: "";
+  display: table;
+}
+
+.container:after {
+  clear: both;
+}
+
+.language_list {
+  padding-left: 8px;
+}
+
+.price {
+  padding-left: 240px;
+
+}
+
+.food_kind {
+  font-size: 40px;
+}
+
+.food_name_top {
+  font-size: 24px;
+}
