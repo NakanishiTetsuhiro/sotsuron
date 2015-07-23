@@ -37,7 +37,7 @@
 
   <section class="description">
     <div class="container">
-      <h1 class="text-center">4つの言語で表示されたメニューが<span style="color: red">無料</span>で作れる！！</h1>
+      <h1 class="text-center">３つの言語で表示されたメニューが<span style="color: red">無料</span>で作れる！！</h1>
     </div>
   </section>
 

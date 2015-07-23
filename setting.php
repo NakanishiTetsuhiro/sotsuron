@@ -72,7 +72,7 @@
       </div> <!-- /item-box -->
 
       <ul id="food-list">
-        <li id="food-box-01" class="item-box">
+        <li id="food-box-1" class="item-box">
           <div class="row">
             <div class="col-md-4">
               <div class="form-group">
@@ -140,13 +140,13 @@
             <div class="col-md-4">
               <label for="exampleInputEmail1" class="block-label">オプション</label>
               <label class="checkbox-inline">
-                <input type="checkbox" id="inlineCheckbox1" value="option1"> 味噌汁
+                <input type="checkbox" class="misoshiru" value="option1"> 味噌汁
               </label>
               <label class="checkbox-inline">
-                <input type="checkbox" id="inlineCheckbox2" value="option2"> ご飯
+                <input type="checkbox" class="rice" value="option2"> ご飯
               </label>
               <label class="checkbox-inline">
-                <input type="checkbox" id="inlineCheckbox3" value="option3"> ミニそば
+                <input type="checkbox" class="minisoba" value="option3"> ミニそば
               </label>
             </div>
           </div> <!-- /row -->
@@ -158,7 +158,7 @@
               </div>
             </div>
           </div>
-        </li> <!-- /food-box -->
+        </li> <!-- /.item-box -->
       </ul>
 
       <div class="row">
