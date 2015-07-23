@@ -1,19 +1,19 @@
 $(document).ready(function(){
 
-var new_list = document.getElementById("food-box");
-
-
-// var i=1;
-// $("#food-list li").attr("id","food-box-"+i);
-// i++;
+  var idNum = 1;
 
   // "品目の追加"ボタンを押した場合の処理
   $('#btn_add').click(function(){
-    $('#food-list').append(new_list);
-    var i=1;
-    $("#food_list li").each(function(){
-      $("#food-box").attr("id","food-box-"+i);
-      i++;
+    $.ajax({
+      type: "POST",
+      scriptCharset: 'utf-8',
+      url: "item-add.php",
+    }).done(function(data){
+      idNum++;
+      $('#food-list').append(data);
+      $('#food-box-template').attr('id', "food-box-" + idNum);
+    }).fail(function(data){
+      alert('error!!!');
     });
   });
 });
