@@ -91,7 +91,6 @@
     <!-- Include all compiled plugins (below), or include individual files as needed -->
     <script src="bootstrap-3.3.4-dist/js/bootstrap.min.js"></script>
 
-    <script src="js/my.js"></script>
     <script src="js/item-add.js"></script>
   </body>
 </html>

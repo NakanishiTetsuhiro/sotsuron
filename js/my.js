@@ -1,7 +1,7 @@
 $(function() {
   $(".kind-box").change(function() {
     var kindBoxValue = $('select[name="kindBox"]').val();
-    // alert(kindBoxValue);
+    console.log(kindBoxValue);
     var foodBoxId = $(this).parents('[id^=food-box-]').attr('id');
 
     $.ajax({
@@ -27,13 +27,5 @@ $(function() {
     }).fail(function(data){
         alert('error!!!' + data);
     });
-
-
-    // $.get("setting.php", $(this).val(), function(data) {
-    //   // $("連動したいプルダウン").html(data);
-    //   alert(data);
-    // });
-
-    // alert('変わってる？？');
   });
 });

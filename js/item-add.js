@@ -20,7 +20,10 @@ $(function() {
       $("#food-box-" + idNum + " > div > div > div > .kind-box").on({change: function() {
           // alert("できた！！");
 
-          var kindBoxValue = $('select[name="kindBox"]').val();
+          // nameのvalを取ってくるんじゃなくて、今押されたところのselectのvalを取ってきたい
+          // var kindBoxValue = $('select[name="kindBox"]').val();
+          var kindBoxValue = $(this).val();
+          console.log(kindBoxValue);
           var tempId = $(this).parents('[id^=food-box-]').attr('id');
           $.ajax({
             type: "POST",
