@@ -7,7 +7,7 @@ $(function() {
     $.ajax({
       type: "POST",
       scriptCharset: 'utf-8',
-      url: "item-add.php",
+      url: "food-box-template.php",
     }).done(function(data){
       // console.log(data);
 

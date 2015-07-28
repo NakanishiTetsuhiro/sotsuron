@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -8,6 +9,11 @@
   <link rel="stylesheet" href="css/result.css">
 </head>
 <body class="content-print">
+
+<pre>
+<?php var_dump($_POST); ?>
+</pre>
+
   <div class="wrapper">
   <h1 class="store_name">うちな〜屋本店</h1>
   <div class="container">

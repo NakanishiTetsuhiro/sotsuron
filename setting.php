@@ -32,26 +32,26 @@
     </div><!-- /top -->
 
     <section class="container">
-      <form action="hogehoge" method="get" accept-charset="utf-8">
+      <form action="result.php" method="post" accept-charset="utf-8">
       <div class="item-box">
         <div class="row">
           <div class="col-md-4">
             <div class="form-group">
-              <label for="exampleInputEmail1">店舗名</label>
-              <input type="store-name" class="form-control" id="exampleInputEmail1" placeholder="店舗名を入力してください">
+              <label for="store-name">店舗名</label>
+              <input type="text" name="store-name" class="form-control" id="store-name" placeholder="店舗名を入力してください">
             </div>
           </div>
 
           <div class="col-md-4">
-            <label for="exampleInputEmail1" class="block-label">表示したい言語</label>
+            <label for="languages" class="block-label">表示したい言語</label>
             <label class="checkbox-inline">
-              <input type="checkbox" id="inlineCheckbox1" value="option1"> 日本語
+              <input type="checkbox" name="lang-select[]" id="languages" value="japanese"> 日本語
             </label>
             <label class="checkbox-inline">
-              <input type="checkbox" id="inlineCheckbox3" value="option3"> ローマ字
+              <input type="checkbox" name="lang-select[]" id="languages" value="ro-ma"> ローマ字
             </label>
             <label class="checkbox-inline">
-              <input type="checkbox" id="inlineCheckbox2" value="option2"> 中国語
+              <input type="checkbox" name="lang-select[]" id="languages" value="chinese"> 中国語
             </label>
 <!--
             <label class="checkbox-inline">
@@ -62,10 +62,10 @@
           <div class="col-md-4">
             <label for="exampleInputEmail1" class="block-label">消費税の表示</label>
             <label class="radio-inline">
-              <input type="radio" name="tax" id="inlineRadio1" value="option1">内税
+              <input type="radio" name="tax" id="inlineRadio1" value="included">内税
             </label>
             <label class="radio-inline">
-              <input type="radio" name="tax" id="inlineRadio2" value="option2">外税
+              <input type="radio" name="tax" id="inlineRadio2" value="exclusive">外税
             </label>
           </div>
         </div> <!-- /row -->
@@ -91,6 +91,6 @@
     <!-- Include all compiled plugins (below), or include individual files as needed -->
     <script src="bootstrap-3.3.4-dist/js/bootstrap.min.js"></script>
 
-    <script src="js/item-add.js"></script>
+    <script src="js/food-box-add.js"></script>
   </body>
 </html>
