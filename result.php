@@ -6,9 +6,8 @@
 <pre>
   <?php
   var_dump($_POST);
-  // var_dump($idTemp);
-  echo(count($_POST));
   ?>
+  <br>
 </pre>
 
 
@@ -65,30 +64,49 @@
 
 <?php
   $i = 0;
+  $itemCounter = count($_POST["food-name-box"]);  // 料理の品目数を取得
+
   foreach ($_POST as $key => $value) {
-    $itemCounter = count($_POST["food-name-box"]);
+    // 品目の数だけdivタグを生成
     if ($i == 0) {
-      // $item = array();
       $item = [];
       for ($j=0; $j < $itemCounter; $j++) {
-        $itemTagStart = "<div class=\"item\">" + "回目";
-        // $itemTagStart = "<div class=\"item\">" + $j+1 + "回目";
-        // $item[] = "<div class=\"item\">" + $j + "回目";
-        $item[] = $itemTagStart;
+        $item[$j] = "<div class=\"item\">";
       }
-      echo $item[0];
     }
 
-    // if ($i == $itemCounter) {
-    //   for ($j=0; $j < $itemCounter; $j++) {
+    // 選択された言語で料理名を表示
+    if ($key == "lang-select") {
+      foreach ($value as $key => $lang) {
+        if ($lang == "chinese") {
+          foreach ($_POST["food-name-box"] as $key => $id) {
+            $j = 0;
+            // var_dump($id);
+            try {
+              $sql= "SELECT id, chinese FROM Mlang WHERE id = $id";
+              $stmh = $pdo->prepare($sql);
+              $stmh->execute();
+              $row = $stmh->fetchall(PDO::FETCH_ASSOC);
+            } catch (PDOException $Exception) {
+              print "エラー：" . $Exception->getMessage();
+            }
+            // var_dump($row[0]['chinese']);
+            $item[$j] .= "<h2 class=\"chinese\">".$row[0]['chinese']."</h2>";
+            $j++;
+          }
+        }
+      }
+    }
 
-    //     // $item1 .= "</div>";
-    //     // $item2 .= "</div>";
-    //     // echo "$item1";
-    //     // echo "$item2";
-    //   }
-    // }
+    if ($i == $itemCounter) {
+      for ($j=0; $j < $itemCounter; $j++) {
+        $item[$j] .= "</div>";
+        echo "$item[$j]";
+      }
+    }
     $i++;
+    // echo "i= $i, ";
+    // echo "$key<br>";
   }
 ?>
 
