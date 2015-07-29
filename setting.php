@@ -32,7 +32,7 @@
     </div><!-- /top -->
 
     <section class="container">
-      <form action="result.php" method="post" accept-charset="utf-8">
+      <form action="result.html" method="post" accept-charset="utf-8">
       <div class="item-box">
         <div class="row">
           <div class="col-md-4">
@@ -48,7 +48,7 @@
               <input type="checkbox" name="lang-select[]" id="languages" value="japanese"> 日本語
             </label>
             <label class="checkbox-inline">
-              <input type="checkbox" name="lang-select[]" id="languages" value="ro-ma"> ローマ字
+              <input type="checkbox" name="lang-select[]" id="languages" value="romaji"> ローマ字
             </label>
             <label class="checkbox-inline">
               <input type="checkbox" name="lang-select[]" id="languages" value="chinese"> 中国語

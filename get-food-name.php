@@ -33,11 +33,6 @@ try {
 } catch (PDOException $Exception) {
   print "エラー：" . $Exception->getMessage();
 }
-// var_dump($row);
-
-
-// var_dump($row);
-
 
 $html = $row;
 header('Content-type: application/json'); //指定されたデータタイプに応じたヘッダーを出力する

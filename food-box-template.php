@@ -82,7 +82,7 @@
     <div class="col-md-5 col-md-offset-7">
       <div class="form-group">
         <label for="price">金額</label>
-        <input type="number" class="form-control" name="price" id="price" placeholder="メニューの金額を入力してください">
+        <input type="number" class="form-control" name="price[]" id="price" placeholder="メニューの金額を入力してください">
       </div>
     </div>
   </div>
