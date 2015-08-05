@@ -1,14 +1,9 @@
 <?php
   require_once('connect-db.php');
   // $idTemp = $_POST["food-name-box"][0];
-?>
 
-<pre>
-  <?php
-  var_dump($_POST);
+  // var_dump($_POST);
   ?>
-  <br>
-</pre>
 
 
 <!DOCTYPE html>
@@ -47,22 +42,22 @@
 
 <?php
   $i = 0;
-  $itemCounter = count($_POST["food-name-box"]);  // 料理の品目数を取得
+  $foodCounter = count($_POST["food-name-box"]);  // 料理の品目数を取得
 
   foreach ($_POST as $key => $value) {
     if ($i == 0) {                        // 品目の数だけdivタグを生成
       $item = [];
-      for ($j=0; $j < $itemCounter; $j++) {
+      for ($j=0; $j < $foodCounter; $j++) {
         $item[$j] = "<div class=\"item\">";
       }
     }
 
-    if ($key == "lang-select") {           // 選択された言語で料理名を表示
-      foreach ($value as $key => $lang) {
+    if ($key == "lang-select") {                               // 選択された言語で料理名を表示
+      foreach ($value as $langKey => $lang) {
         // var_dump($lang);
-        if ($lang == "chinese") {
+        if ($lang == "chinese") {                                   // 中国語
           $j = 0;
-          foreach ($_POST["food-name-box"] as $key => $id) {
+          foreach ($_POST["food-name-box"] as $idKey => $id) {
             // var_dump($id);
             try {
               $sql= "SELECT id, chinese FROM Mlang WHERE id = $id";
@@ -77,28 +72,65 @@
             $j++;
           }
         }
+
+        if ($lang == "japanese") {                                  // 日本語
+          $j = 0;
+          foreach ($_POST["food-name-box"] as $idKey => $id) {
+            try {
+              $sql= "SELECT id, japanese FROM Mlang WHERE id = $id";
+              $stmh = $pdo->prepare($sql);
+              $stmh->execute();
+              $row = $stmh->fetchall(PDO::FETCH_ASSOC);
+            } catch (PDOException $Exception) {
+              print "エラー：" . $Exception->getMessage();
+            }
+            $item[$j] .= "<p class=\"japanese\">".$row[0]['japanese']."</p>";
+            $j++;
+          }
+        }
+
       }
     }
 
-//---------------ここがうまくいかない--------------------------
-    // if ($key == "price") {                                    // 金額を表示
-    //   foreach ($value as $key => $price) {
+    // if ($key == "food-option") {                           // オプションを表示
     //   $j = 0;
-    //     var_dump($price);
-    //     $item[$j] .= "<p class=\"price\">".$price."YEN</p>";
-    //     // $item[$j] .= "入ってる？？";
+    //   var_dump($value);
+
+    //   foreach ($value as $foodOptionKey => $foodOption) {
+    //     // if ($_POST["tax"] == "included") {
+    //     //   $item[$j] .= "<p class=\"food-option\">".$foodOption."</p>";
+    //     // } elseif ($_POST["tax"] == "exclusive") {
+    //     //   $item[$j] .= "<p class=\"food-option\">".$foodOption."</p>";
+    //     // }
     //     $j++;
     //   }
     // }
-//------------------------------------------------------------
 
-    if ($i == $itemCounter) {                           // タグを閉じる処理と出力の処理
-      for ($j=0; $j < $itemCounter; $j++) {
+    if ($key == "price") {                                    // 金額を表示
+      $j = 0;
+      foreach ($value as $priceKey => $price) {
+        // echo "$j<BR>";
+        // var_dump($price);
+        // echo "<BR>";
+        if ($_POST["tax"] == "included") {
+          $item[$j] .= "<p class=\"price\">".$price."YEN</p>";
+        } elseif ($_POST["tax"] == "exclusive") {
+          $item[$j] .= "<p class=\"price\">".$price."YEN +TAX</p>";
+        }
+        $j++;
+      }
+    }
+
+    $postCounter = count($_POST);
+    $postCounter--;
+    if ($i == $postCounter) {                           // タグを閉じる処理と出力の処理
+      for ($j=0; $j < $foodCounter; $j++) {
         $item[$j] .= "</div>";
-        echo "$item[$j]";
+        echo $item[$j];
       }
     }
     $i++;
+    // echo $i;
   }
 ?>
 

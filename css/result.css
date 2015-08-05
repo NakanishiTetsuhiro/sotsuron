@@ -48,8 +48,9 @@ h1 {
 }
 
 .price {
-  padding-left: 464px;
-
+  /*padding-left: 464px;*/
+  width: 120px;
+  margin-left: auto;
 }
 
 .kind-box {

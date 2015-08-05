@@ -40,12 +40,13 @@ $(function() {
               $('.food-name-box').append($('<option>').html(data[i]["japanese"]).val(data[i]["id"]));
             }
           }).fail(function(data){
-            alert('error!!!' + data);
+            alert('error!!!');
+            console.log(data);
           });
 
         }
       });
-      console.log("チェック");
+      // console.log("チェック");
 
       // $('#food-box-template').attr('id', "food-box-" + idNum);
 

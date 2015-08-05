@@ -66,8 +66,8 @@
       </div>
     </div>
     <div class="col-md-4">
-      <label for="food-option" class="block-label">オプション</label>
-      <label id="food-option" class="checkbox-inline">
+      <label for="food-option" class="block-label">オプション(準備中)</label>
+      <label id="food-option" class="checkbox-inline" >
         <input type="checkbox" name="food-option[]" class="misoshiru" value="miso-soup"> 味噌汁
       </label>
       <label class="checkbox-inline">

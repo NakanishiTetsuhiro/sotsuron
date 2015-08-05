@@ -1,7 +1,7 @@
 <?php
 // データベースに接続
 $db_user = "root";  // ユーザー名
-$db_pass = "piro372";     // パスワード
+$db_pass = "vagrant";     // パスワード
 $db_host = "localhost";   // ホスト名
 $db_name = "sotsuron";    // データベース名
 $db_type = "mysql";       // データベースの種類
