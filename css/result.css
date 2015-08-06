@@ -63,4 +63,15 @@ h1 {
 
 .item {
   padding-left: 16px;
+  margin-bottom: 16px;
+}
+
+.food-img {
+  width: 100px;
+  display: inline-block;
+}
+
+.lang-box {
+  display: inline-block;
+  margin-left: 24px;
 }
