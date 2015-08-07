@@ -1,10 +1,8 @@
 <?php
   require_once('connect-db.php');
   // $idTemp = $_POST["food-name-box"][0];
-
   // var_dump($_POST);
-  ?>
-
+?>
 
 <!DOCTYPE html>
 <html>
@@ -16,12 +14,11 @@
   <link rel="stylesheet" href="css/result.css">
 </head>
 <body class="content-print">
-
   <div class="wrapper">
   <h1 class="store_name"><?php echo $_POST["store-name"]; ?></h1>
   <div class="container">
-
     <section class="inner-box">
+
 
 <!-- 料理の種類を表示させるとこ（旧）
        <h1 class="kind-box">
@@ -50,9 +47,34 @@
       for ($j=0; $j < $foodCounter; $j++) {
         $item[$j] = "<div class=\"item\">";
       }
+
+      $k = 0;
+      foreach ($_POST["food-name-box"] as $idKey => $id) {                  // 画像を表示させる
+        // var_dump($id);
+        try {
+          $sql= "SELECT id, img_path FROM Mlang WHERE id = $id";
+          $stmh = $pdo->prepare($sql);
+          $stmh->execute();
+          $row = $stmh->fetchall(PDO::FETCH_ASSOC);
+        } catch (PDOException $Exception) {
+          print "エラー：" . $Exception->getMessage();
+        }
+        $item[$k] .= "<img class=\"food-img\" src=". $row[0]['img_path'] .">";
+        $k++;
+      }
+
+      // $item[0] .= "<img class=\"food-img\" src=\"img/test/su-chika.JPG\">";
+      // $item[1] .= "<img class=\"food-img\" src=\"img/test/go-ya.jpg\">";
+      // $item[2] .= "<img class=\"food-img\" src=\"img/test/inamuruchi.jpg\">";
     }
 
+
     if ($key == "lang-select") {                               // 選択された言語で料理名を表示
+
+      for ($j=0; $j < $foodCounter; $j++) {
+        $item[$j] .= "<div class=\"lang-box\">";
+      }
+
       foreach ($value as $langKey => $lang) {
         // var_dump($lang);
         if ($lang == "chinese") {                                   // 中国語
@@ -88,8 +110,12 @@
             $j++;
           }
         }
-
       }
+
+      for ($j=0; $j < $foodCounter; $j++) {
+        $item[$j] .= "</div>";
+      }
+
     }
 
     // if ($key == "food-option") {                           // オプションを表示
