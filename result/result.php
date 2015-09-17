@@ -1,8 +1,5 @@
-<?php
-  require_once('connect-db.php');
-  // $idTemp = $_POST["food-name-box"][0];
-  // var_dump($_POST);
-?>
+<!-- Database connect settings loading -->
+<?php require_once('connect-db.php'); ?>
 
 <!DOCTYPE html>
 <html>
@@ -43,7 +40,7 @@
 
   foreach ($_POST as $key => $value) {
     if ($i == 0) {                        // 品目の数だけdivタグを生成
-      $item = [];
+      $item = array();
       for ($j=0; $j < $foodCounter; $j++) {
         $item[$j] = "<div class=\"item\">";
       }
