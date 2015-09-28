@@ -1,4 +1,5 @@
 $(function() {
+
   var idNum = 0;
 
   // "品目の追加"ボタンを押した場合の処理
@@ -14,8 +15,6 @@ $(function() {
       var foodBoxTemp = data.replace(/food-box-template/, 'food-box-' + idNum);
       $('#food-list').append(foodBoxTemp);
       $("#food-box-" + idNum + " > div > div > div > .kind-box").on({change: function() {
-          // nameのvalを取ってくるんじゃなくて、今押されたところのselectのvalを取ってきたい
-          // var kindBoxValue = $('select[name="kindBox"]').val();
           var kindBoxValue = $(this).val();
           console.log(kindBoxValue);
           var tempId = $(this).parents('[id^=food-box-]').attr('id');
@@ -40,13 +39,6 @@ $(function() {
 
         }
       });
-
-      // $('#food-box-template').attr('id', "food-box-" + idNum);
-
-      // $('#food-box-' + idNum + ' .kindBox').on("change", function(){
-      //   alert("click!");
-      // });
-
 
     }).fail(function(data){
       alert('error!!!');

@@ -7,9 +7,6 @@ class ConnectDB {
   private $db_host = "localhost";   // ホスト名
   private $db_name = "sotsuron";    // データベース名
   private $db_type = "mysql";       // データベースの種類
-  // private $dsn     = "$db_type:host=$db_host;dbname=$db_name;charset=utf8";
-  // private $dsn     = $this->db_type.":host=".$this->db_host.";dbname=".$this->db_name.";charset=utf8";
-  // private $dsn     = $db_type.":host=".$db_host.";dbname=".$db_name.";charset=utf8";
   private $pdo = '';
 
   // コンストラクタは使わなくてもこういう風にかいておこう！

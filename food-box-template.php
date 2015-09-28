@@ -1,4 +1,4 @@
-<?php require_once('connect-db.php'); ?>
+<?php require_once('ConnectDB.php'); ?>
 
 <li id="food-box-template" class="item-box">
   <div class="row">
@@ -7,28 +7,20 @@
         <label for="exampleInputEmail1">料理の種類</label>
         <select name="kindBox" class="kind-box form-control">
           <?php
-          try {
-            $sql= "SELECT DISTINCT type_id, type FROM Mlang";
-            $stmh = $pdo->prepare($sql);
-            $stmh->execute();
-            $row = $stmh->fetchall(PDO::FETCH_ASSOC); // $rowに結果を格納してます
-          } catch (PDOException $Exception) {
-            print "エラー：" . $Exception->getMessage();
-          }
-
+          $db = new ConnectDB();
+          $get_type = $db->db_accessor("DISTINCT type_id, type", "Mlang", "id >= 1");
           ?>
+
           <option>種類を選択してください</option>
-          <?php
 
-          $i = 0;
-          foreach ($row as $key => $value) {
-          ?>
-          <option value="<?php echo $value['type_id'] ?>">
           <?php
-          echo $value['type'];
-          // var_dump($value);
-          // echo $value;
+          $i = 0;
+          foreach ($get_type as $key => $value) {
           ?>
+            <option value="<?php echo $value['type_id'] ?>">
+            <?php
+            echo $value['type'];
+            ?>
           </option>
           <?php
           $i++;
@@ -42,16 +34,9 @@
         <label for="exampleInputEmail1">料理名</label>
         <select name="food-name-box[]" class="food-name-box form-control">
           <?php
-          try {
-            $sql= "SELECT DISTINCT id, japanese FROM Mlang";
-            $stmh = $pdo->prepare($sql);
-            $stmh->execute();
-            $row = $stmh->fetchall(PDO::FETCH_ASSOC); // $rowに結果を格納してます
-          } catch (PDOException $Exception) {
-            print "エラー：" . $Exception->getMessage();
-          }
+          $get_foodname = $db->db_accessor("DISTINCT id, japanese", "Mlang", "id >= 1");
           $i = 0;
-          foreach ($row as $key => $value) {
+          foreach ($get_foodname as $key => $value) {
           ?>
           <option value="<?php echo $value['id'] ?>">
           <?php
