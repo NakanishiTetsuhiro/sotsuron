@@ -1,5 +1,4 @@
 $(function() {
-
   var idNum = 0;
 
   // "品目の追加"ボタンを押した場合の処理
@@ -9,17 +8,12 @@ $(function() {
       scriptCharset: 'utf-8',
       url: "food-box-template.php",
     }).done(function(data){
-      // console.log(data);
 
-      // テンプレートにIDを設定
+      // テンプレートを元に料理の入力欄を生成。連番でIDを与える。
       idNum++;
       var foodBoxTemp = data.replace(/food-box-template/, 'food-box-' + idNum);
-
       $('#food-list').append(foodBoxTemp);
-
       $("#food-box-" + idNum + " > div > div > div > .kind-box").on({change: function() {
-          // alert("できた！！");
-
           // nameのvalを取ってくるんじゃなくて、今押されたところのselectのvalを取ってきたい
           // var kindBoxValue = $('select[name="kindBox"]').val();
           var kindBoxValue = $(this).val();
@@ -46,7 +40,6 @@ $(function() {
 
         }
       });
-      // console.log("チェック");
 
       // $('#food-box-template').attr('id', "food-box-" + idNum);
 

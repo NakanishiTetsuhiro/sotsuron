@@ -31,7 +31,6 @@
 
             // 画像を表示させる
             foreach ($_POST["food-name-box"] as $idKey => $id) {
-            // var_dump($id);
             try {
               $sql= "SELECT id, img_path FROM Mlang WHERE id = $id";
               // print $sql."<br>";
@@ -41,7 +40,11 @@
             } catch (PDOException $Exception) {
               print "エラー：" . $Exception->getMessage();
             }
-            // db_accessor("id, img_path", "Mlang", "id = $id");
+
+            // ↓ここがうまくいかない。。
+            db_accessor("id, img_path", "Mlang", "id = $id");
+            // ↑ここがうまくいかない。。
+
             $item[$k] .= "<img class=\"food-img\" src=". $row[0]['img_path'] .">";
             $k++;
             }
