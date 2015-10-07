@@ -1,5 +1,5 @@
 <!-- Database connect settings loading -->
-<?php require_once('connect-db.php'); ?>
+<?php require_once('ConnectDB.php'); ?>
 
 <!DOCTYPE html>
 <html lang="ja">

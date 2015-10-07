@@ -33,7 +33,7 @@ $(function() {
               $('.food-name-box').append($('<option>').html(data[i]["japanese"]).val(data[i]["id"]));
             }
           }).fail(function(data){
-            alert('error!!!');
+            console.log('error!!!');
             console.log(data);
           });
 
