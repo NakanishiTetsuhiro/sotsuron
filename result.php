@@ -1,5 +1,10 @@
   <!-- Database connect settings loading -->
 <?php require_once('ConnectDB.php'); ?>
+
+<pre>
+  <?php var_dump($_POST); ?>
+</pre>
+
 <!DOCTYPE html>
 <html>
   <head>

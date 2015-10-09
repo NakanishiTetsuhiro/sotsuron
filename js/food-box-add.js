@@ -10,14 +10,18 @@ $(function() {
       url: "food-box-template.php",
     }).done(function(data){
 
-      // テンプレートを元に料理の入力欄を生成。連番でIDを与える。
       idNum++;
-      var foodBoxTemp = data.replace(/food-box-template/, 'food-box-' + idNum);
+      var foodBoxTemp = data.replace(/food-box-template/, 'food-box-' + idNum)
+                            .replace(/food-option/g, 'food-option-' + idNum);
+
       $('#food-list').append(foodBoxTemp);
+
+      // 料理の種類が変わった時に料理名のドロップダウンメニューの中身を変更するイベントを設置
       $("#food-box-" + idNum + " > div > div > div > .kind-box").on({change: function() {
           var kindBoxValue = $(this).val();
           console.log(kindBoxValue);
           var tempId = $(this).parents('[id^=food-box-]').attr('id');
+          // Ajaxでget-food-name.phpを利用してDBにアクセス
           $.ajax({
             type: "POST",
             scriptCharset: 'utf-8',
@@ -27,21 +31,22 @@ $(function() {
               item:kindBoxValue
             },
           }).done(function(data){
-            console.log(tempId);
+            // DBから引っ張ってきたデータを料理名を選択するoptionにセット
             $('#' + tempId + ' .food-name-box > option').remove();
             for (var i = 0; i < data.length; i++){
               $('.food-name-box').append($('<option>').html(data[i]["japanese"]).val(data[i]["id"]));
             }
           }).fail(function(data){
-            console.log('error!!!');
+            alert.log('error!!!');
             console.log(data);
           });
-
         }
       });
 
     }).fail(function(data){
       alert('error!!!');
     });
+
+
   });
 });
