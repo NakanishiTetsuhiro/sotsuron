@@ -10,7 +10,6 @@ $(function() {
       url: "food-box-template.php",
     }).done(function(data){
 
-      idNum++;
       var foodBoxTemp = data.replace(/food-box-template/, 'food-box-' + idNum)
                             .replace(/food-option/g, 'food-option-' + idNum);
 
@@ -42,6 +41,8 @@ $(function() {
           });
         }
       });
+
+      idNum++;
 
     }).fail(function(data){
       alert('error!!!');
