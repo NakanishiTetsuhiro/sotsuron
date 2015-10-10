@@ -85,18 +85,34 @@
                   $j++;
                 }
               }
-              $postCounter = count($_POST);
-              $postCounter--;
+
+
+              // 料理にセットで付いてくるオプションを表示
+              if ($key == "food-option-1") {
+                $j = 0;
+                foreach ($value as $foodOptionKey => $foodOption) {
+                  if ($foodOption == "miso-soup") {
+                    $item[$j] .= "<p class=\"miso-soup\">味噌汁付き</p>";
+                  } elseif ($foodOption == "rice") {
+                    $item[$j] .= "<p class=\"rice\">ご飯付き</p>";
+                  } elseif ($foodOption == "mini-soba") {
+                    $item[$j] .= "<p class=\"mini-soba\">ミニそば付き</p>";
+                  }
+                  $j++;
+                }
+              }
+
 
               // タグを閉じる処理と出力の処理
+              $postCounter = count($_POST);
+              $postCounter--;
               if ($i == $postCounter) {
-              for ($j=0; $j < $foodCounter; $j++) {
-            $item[$j] .= "</div>";
-            echo $item[$j];
-            }
-            }
+                for ($j=0; $j < $foodCounter; $j++) {
+                  $item[$j] .= "</div>";
+                  echo $item[$j];
+                }
+              }
             $i++;
-            // echo $i;
           }
           ?>
         </section>
