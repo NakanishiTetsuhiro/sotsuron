@@ -31,9 +31,9 @@ $(function() {
             },
           }).done(function(data){
             // DBから引っ張ってきたデータを料理名を選択するoptionにセット
-            $('#' + tempId + ' .food-name-box > option').remove();
+            $('#' + tempId + ' .food_name_box > option').remove();
             for (var i = 0; i < data.length; i++){
-              $('.food-name-box').append($('<option>').html(data[i]["japanese"]).val(data[i]["id"]));
+              $('.food_name_box').append($('<option>').html(data[i]["japanese"]).val(data[i]["id"]));
             }
           }).fail(function(data){
             alert.log('error!!!');

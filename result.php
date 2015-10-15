@@ -24,7 +24,7 @@
           $db = new ConnectDB();
 
           // 料理の品目数を取得
-          $foodCounter = count($_POST["food-name-box"]);
+          $foodCounter = count($_POST["foodNameBox"]);
           foreach ($_POST as $key => $value) {
 
             // 品目の数だけdivタグを生成
@@ -36,7 +36,7 @@
 
               // 画像を表示させる
               $k = 0;
-              foreach ($_POST["food-name-box"] as $idKey => $id) {
+              foreach ($_POST["foodNameBox"] as $idKey => $id) {
                 $get_image = $db->db_accessor("id, img_path", "Mlang", "id = $id");
                 $item[$k] .= "<img class=\"food-img\" src=". $get_image[0]['img_path'] .">";
                 $k++;
@@ -52,7 +52,7 @@
                 // 中国語
                 if ($lang == "chinese") {
                   $j = 0;
-                  foreach ($_POST["food-name-box"] as $idKey => $id) {
+                  foreach ($_POST["foodNameBox"] as $idKey => $id) {
                     $get_chinese = $db->db_accessor("id, chinese", "Mlang", "id = $id");
                     $item[$j] .= "<h2 class=\"chinese\">".$get_chinese[0]['chinese']."</h2>";
                     $j++;
@@ -61,7 +61,7 @@
                 // 日本語
                 if ($lang == "japanese") {
                   $j = 0;
-                  foreach ($_POST["food-name-box"] as $idKey => $id) {
+                  foreach ($_POST["foodNameBox"] as $idKey => $id) {
                     $get_japanese = $db->db_accessor("id, japanese", "Mlang", "id = $id");
                     $item[$j] .= "<p class=\"japanese\">".$get_japanese[0]['japanese']."</p>";
                     $j++;

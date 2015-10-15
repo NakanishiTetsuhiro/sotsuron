@@ -32,7 +32,7 @@
     <div class="col-md-4">
       <div class="form-group">
         <label for="exampleInputEmail1">料理名</label>
-        <select name="food-name-box[]" class="food-name-box form-control">
+        <select name="foodNameBox[]" class="food_name_box form-control">
           <?php
           $get_foodname = $db->db_accessor("DISTINCT id, japanese", "Mlang", "id >= 1");
           $i = 0;
