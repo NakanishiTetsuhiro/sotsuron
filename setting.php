@@ -38,7 +38,7 @@
                     <input type="text" name="store-name" class="form-control" id="store-name" placeholder="店舗名を入力してください">
                   </div>
                 </div>
-                <div class="col-md-4">
+                <div class="col-md-4 mb">
                   <label for="languages" class="block-label">表示したい言語</label>
                   <label class="checkbox-inline">
                     <input type="checkbox" name="lang-select[]" class="languages" value="chinese"> 中国語
@@ -46,16 +46,8 @@
                   <label class="checkbox-inline">
                     <input type="checkbox" name="lang-select[]" class="languages" value="japanese"> 日本語
                   </label>
-                  <!--
-                   <label class="checkbox-inline">
-                    <input type="checkbox" name="lang-select[]" id="languages" value="romaji" disabled="disabled"> ローマ字
-                  </label>
-                  <label class="checkbox-inline">
-                    <input type="checkbox" id="inlineCheckbox3" value="option3"> 英語
-                  </label>
-                  -->
                 </div>
-                <div class="col-md-4">
+                <div class="col-md-4 mb">
                   <label for="exampleInputEmail1" class="block-label">消費税の表示</label>
                   <label class="radio-inline">
                     <input type="radio" name="tax" id="inlineRadio1" value="included">内税
@@ -65,17 +57,34 @@
                   </label>
                 </div>
               </div> <!-- /row -->
-            </div> <!-- /item-box -->
-
-              <ul id="food-list"></ul>
 
               <div class="row">
+                <div class="col-md-4">
+                  <label for="" class="block-label">画像</label>
+                  <label class="radio-inline">
+                    <input type="radio" name="imageSwitch" value="img-on">画像あり
+                  </label>
+                  <label class="radio-inline">
+                    <input type="radio" name="imageSwitch" value="img-off">画像なし
+                  </label>
+                </div>
+              </div> <!-- /row -->
+            </div> <!-- /item-box -->
+
+            <div class="item-box">
+              <div class="row">
+              aaaa
+              </div>
+            </div> <!-- /item-box -->
+
+            <ul id="food-list"></ul>
+
+            <div class="row">
               <button type="button" id="btn_add" class="btn btn-default pull-right">品目を追加する</button>
             </div>
             <div class="row">
               <button type="submit" class="btn btn-primary btn-lg pull-right" style="margin-top:20px;">メニュー表を作る</button>
             </div>
-          <div id="test"></div>
         </form>
       </section>
 

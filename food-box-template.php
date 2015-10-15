@@ -50,7 +50,7 @@
         </select>
       </div>
     </div>
-    <div class="col-md-4">
+    <div class="col-md-4 mb">
       <label for="food-option" class="block-label">オプション</label>
       <label class="checkbox-inline">
         <input type="checkbox" name="food-option[]" value="miso-soup"> 味噌汁
