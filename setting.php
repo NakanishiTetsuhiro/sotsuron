@@ -34,17 +34,17 @@
               <div class="row">
                 <div class="col-md-4">
                   <div class="form-group">
-                    <label for="store-name">店舗名</label>
-                    <input type="text" name="store-name" class="form-control" id="store-name" placeholder="店舗名を入力してください">
+                    <label for="storeName">店舗名</label>
+                    <input type="text" name="storeName" class="form-control" id="storeName" placeholder="店舗名を入力してください">
                   </div>
                 </div>
                 <div class="col-md-4 mb">
                   <label for="languages" class="block-label">表示したい言語</label>
                   <label class="checkbox-inline">
-                    <input type="checkbox" name="lang-select[]" class="languages" value="chinese"> 中国語
+                    <input type="checkbox" name="langSelect[]" class="languages" value="chinese"> 中国語
                   </label>
                   <label class="checkbox-inline">
-                    <input type="checkbox" name="lang-select[]" class="languages" value="japanese"> 日本語
+                    <input type="checkbox" name="langSelect[]" class="languages" value="japanese"> 日本語
                   </label>
                 </div>
                 <div class="col-md-4 mb">
@@ -62,10 +62,10 @@
                 <div class="col-md-4">
                   <label for="" class="block-label">画像</label>
                   <label class="radio-inline">
-                    <input type="radio" name="imageSwitch" value="img-on">画像あり
+                    <input type="radio" name="imageSwitch" value="imgOn">画像あり
                   </label>
                   <label class="radio-inline">
-                    <input type="radio" name="imageSwitch" value="img-off">画像なし
+                    <input type="radio" name="imageSwitch" value="imgOff">画像なし
                   </label>
                 </div>
               </div> <!-- /row -->

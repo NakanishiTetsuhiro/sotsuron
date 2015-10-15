@@ -51,15 +51,15 @@
       </div>
     </div>
     <div class="col-md-4 mb">
-      <label for="food-option" class="block-label">オプション</label>
+      <label for="foodOption" class="block-label">オプション</label>
       <label class="checkbox-inline">
-        <input type="checkbox" name="food-option[]" value="miso-soup"> 味噌汁
+        <input type="checkbox" name="foodOption[]" value="misoSoup"> 味噌汁
       </label>
       <label class="checkbox-inline">
-        <input type="checkbox" name="food-option[]" value="rice"> ご飯
+        <input type="checkbox" name="foodOption[]" value="rice"> ご飯
       </label>
       <label class="checkbox-inline">
-        <input type="checkbox" name="food-option[]" value="mini-soba"> ミニそば
+        <input type="checkbox" name="foodOption[]" value="miniSoba"> ミニそば
       </label>
     </div>
   </div> <!-- /row -->

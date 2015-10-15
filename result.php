@@ -16,7 +16,7 @@
   </head>
   <body class="content-print">
     <div class="wrapper">
-      <h1 class="store_name"><?php echo $_POST["store-name"]; ?></h1>
+      <h1 class="store_name"><?php echo $_POST["storeName"]; ?></h1>
       <div class="container">
         <section class="inner-box">
           <?php
@@ -44,7 +44,7 @@
             }
 
             // 選択された言語で料理名を表示
-            if ($key == "lang-select") {
+            if ($key == "langSelect") {
               for ($j=0; $j < $foodCounter; $j++) {
                 $item[$j] .= "<div class=\"lang-box\">";
               }
@@ -79,18 +79,18 @@
 
               // 料理にセットで付いてくるオプションを表示
               for ($j=0; $j < $foodCounter; $j++) {
-                if ($key === "food-option-".$j) {
+                if ($key === "foodOption".$j) {
                   foreach ($value as $foodOptionKey => $foodOption) {
-                    if ($foodOption == "miso-soup") {
-                      $item[$j] .= "<p class=\"miso-soup\">味噌汁付き</p>";
+                    if ($foodOption == "misoSoup") {
+                      $item[$j] .= "<p class=\"miso_soup\">味噌汁付き</p>";
                     }
 
                     if ($foodOption == "rice") {
                       $item[$j] .= "<p class=\"rice\">ご飯付き</p>";
                     }
 
-                    if ($foodOption == "mini-soba") {
-                      $item[$j] .= "<p class=\"mini-soba\">ミニそば付き</p>";
+                    if ($foodOption == "miniSoba") {
+                      $item[$j] .= "<p class=\"mini_soba\">ミニそば付き</p>";
                     }
                   }
                 }

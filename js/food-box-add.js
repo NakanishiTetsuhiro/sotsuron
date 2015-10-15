@@ -11,7 +11,7 @@ $(function() {
     }).done(function(data){
 
       var foodBoxTemp = data.replace(/food-box-template/, 'food-box-' + idNum)
-                            .replace(/food-option/g, 'food-option-' + idNum);
+                            .replace(/foodOption/g, 'foodOption' + idNum);
 
       $('#food-list').append(foodBoxTemp);
 
