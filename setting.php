@@ -73,7 +73,29 @@
 
             <div class="item-box">
               <div class="row">
-              aaaa
+                <div class="col-md-4">
+                  <label for="" class="block-label">使用するテーマを選択してください</label>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-4 col-sm-6">
+                  <label class="radio-inline">
+                    <input type="radio" name="menu_theme" value="default" checked="checked">default
+                  </label>
+                  <img src="img/noimage.gif" alt="No image">
+                </div>
+                <div class="col-md-4 col-sm-6">
+                  <label class="radio-inline">
+                    <input type="radio" name="menu_theme" value="verticalWriting">縦書き
+                  </label>
+                  <img src="img/noimage.gif" alt="No image">
+                </div>
+                <div class="col-md-4 col-sm-6">
+                  <label class="radio-inline">
+                    <input type="radio" name="menu_theme" value="verticalWriting">縦書き
+                  </label>
+                  <img src="img/noimage.gif" alt="No image">
+                </div>
               </div>
             </div> <!-- /item-box -->
 
