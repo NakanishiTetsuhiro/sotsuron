@@ -41,10 +41,10 @@
                 <div class="col-md-4 mb">
                   <label for="languages" class="block-label">表示したい言語</label>
                   <label class="checkbox-inline">
-                    <input type="checkbox" name="langSelect[]" class="languages" value="chinese"> 中国語
+                    <input type="checkbox" name="langSelect[]" class="languages" value="chinese" checked="checked"> 中国語
                   </label>
                   <label class="checkbox-inline">
-                    <input type="checkbox" name="langSelect[]" class="languages" value="japanese"> 日本語
+                    <input type="checkbox" name="langSelect[]" class="languages" value="japanese" checked="checked"> 日本語
                   </label>
                 </div>
                 <div class="col-md-4 mb">
@@ -53,19 +53,19 @@
                     <input type="radio" name="tax" id="inlineRadio1" value="included">内税
                   </label>
                   <label class="radio-inline">
-                    <input type="radio" name="tax" id="inlineRadio2" value="exclusive">外税
+                    <input type="radio" name="tax" id="inlineRadio2" value="exclusive" checked="checked">外税
                   </label>
                 </div>
               </div> <!-- /row -->
 
               <div class="row">
-                <div class="col-md-4">
-                  <label for="" class="block-label">画像</label>
+                <div class="col-md-8">
+                  <label for="imageSwitch" class="block-label">画像の表示・非表示</label>
                   <label class="radio-inline">
-                    <input type="radio" name="imageSwitch" value="imgOn">画像あり
+                    <input type="radio" name="imageSwitch" value="imgOn">画像あり（料理の画像を用意する必要があります）
                   </label>
                   <label class="radio-inline">
-                    <input type="radio" name="imageSwitch" value="imgOff">画像なし
+                    <input type="radio" name="imageSwitch" value="imgOff" checked="checked">画像なし
                   </label>
                 </div>
               </div> <!-- /row -->
