@@ -80,7 +80,7 @@
               <div class="row">
                 <div class="col-md-4 col-sm-6">
                   <label class="radio-inline">
-                    <input type="radio" name="menu_theme" value="default" checked="checked">default
+                    <input type="radio" name="menu_theme" value="default_theme" checked="checked">デフォルト
                   </label>
                   <img src="img/noimage.gif" alt="No image">
                 </div>
