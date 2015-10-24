@@ -1,9 +1,13 @@
-  <!-- Database connect settings loading -->
-<?php require_once('ConnectDB.php'); ?>
+<?php
+session_start();
 
-<pre>
-  <?php var_dump($_POST); ?>
-</pre>
+// Database connect settings loading
+require_once('../ConnectDB.php');
+?>
+
+
+<pre> <?php var_dump($_SESSION); ?> </pre>
+
 
 <!DOCTYPE html>
 <html>
@@ -11,12 +15,12 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>メニュー表出力結果</title>
-    <link rel="stylesheet" type="text/css" href="css/reset.css">
-    <link rel="stylesheet" href="css/result.css">
+    <link rel="stylesheet" type="text/css" href="../css/reset.css">
+    <link rel="stylesheet" href="../css/result.css">
   </head>
   <body class="content-print">
     <div class="wrapper">
-      <h1 class="store_name"><?php echo $_POST["storeName"]; ?></h1>
+      <h1 class="store_name"><?php echo $_SESSION["storeName"]; ?></h1>
       <div class="container">
         <section class="inner-box">
           <?php
@@ -24,22 +28,14 @@
           $db = new ConnectDB();
 
           // 料理の品目数を取得
-          $foodCounter = count($_POST["foodNameBox"]);
-          foreach ($_POST as $key => $value) {
+          $foodCounter = count($_SESSION["foodNameBox"]);
+          foreach ($_SESSION as $key => $value) {
 
             // 品目の数だけdivタグを生成
             if ($i == 0) {
               $item = array();
               for ($j=0; $j < $foodCounter; $j++) {
                 $item[$j] = "<div class=\"item\">";
-              }
-
-              // 画像を表示させる
-              $k = 0;
-              foreach ($_POST["foodNameBox"] as $idKey => $id) {
-                $get_image = $db->db_accessor("id, img_path", "Mlang", "id = $id");
-                $item[$k] .= "<img class=\"food-img\" src=". $get_image[0]['img_path'] .">";
-                $k++;
               }
             }
 
@@ -52,7 +48,7 @@
                 // 中国語
                 if ($lang == "chinese") {
                   $j = 0;
-                  foreach ($_POST["foodNameBox"] as $idKey => $id) {
+                  foreach ($_SESSION["foodNameBox"] as $idKey => $id) {
                     $get_chinese = $db->db_accessor("id, chinese", "Mlang", "id = $id");
                     $item[$j] .= "<h2 class=\"chinese\">".$get_chinese[0]['chinese']."</h2>";
                     $j++;
@@ -61,7 +57,7 @@
                 // 日本語
                 if ($lang == "japanese") {
                   $j = 0;
-                  foreach ($_POST["foodNameBox"] as $idKey => $id) {
+                  foreach ($_SESSION["foodNameBox"] as $idKey => $id) {
                     $get_japanese = $db->db_accessor("id, japanese", "Mlang", "id = $id");
                     $item[$j] .= "<p class=\"japanese\">".$get_japanese[0]['japanese']."</p>";
                     $j++;
@@ -101,9 +97,9 @@
               if ($key == "price") {
                 $j = 0;
                 foreach ($value as $priceKey => $price) {
-                  if ($_POST["tax"] == "included") {
+                  if ($_SESSION["tax"] == "included") {
                     $item[$j] .= "<p class=\"price\">".$price."YEN</p>";
-                  } elseif ($_POST["tax"] == "exclusive") {
+                  } elseif ($_SESSION["tax"] == "exclusive") {
                     $item[$j] .= "<p class=\"price\">".$price."YEN +TAX</p>";
                   }
                   $j++;
@@ -112,7 +108,7 @@
 
 
               // タグを閉じる処理と出力の処理
-              $postCounter = count($_POST);
+              $postCounter = count($_SESSION);
               $postCounter--;
               if ($i == $postCounter) {
                 for ($j=0; $j < $foodCounter; $j++) {
