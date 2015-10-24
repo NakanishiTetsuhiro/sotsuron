@@ -61,10 +61,10 @@
               <div class="row">
                 <div class="col-md-8">
                   <label for="imageSwitch" class="block-label">画像の表示・非表示</label>
-                  <label class="radio-inline">
+                  <label class="image_switcher radio-inline">
                     <input type="radio" name="imageSwitch" value="imgOn">画像あり（料理の画像を用意する必要があります）
                   </label>
-                  <label class="radio-inline">
+                  <label class="image_switcher radio-inline">
                     <input type="radio" name="imageSwitch" value="imgOff" checked="checked">画像なし
                   </label>
                 </div>

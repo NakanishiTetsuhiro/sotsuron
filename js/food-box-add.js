@@ -1,5 +1,15 @@
 $(function() {
 
+  // 画像アップロードフォームの表示、非表示を制御
+  $(".image_switcher > input[value~='imgOn']").click(function(){
+      $('.image_upload_form_wrapper').css('display', 'block');
+  });
+
+  $(".image_switcher > input[value~='imgOff']").click(function(){
+      $('.image_upload_form_wrapper').css('display', 'none');
+  });
+
+
   var idNum = 0;
 
   // "品目の追加"ボタンを押した場合の処理
@@ -8,18 +18,22 @@ $(function() {
       type: "POST",
       scriptCharset: 'utf-8',
       url: "food-box-template.php",
-    }).done(function(data){
 
+    }).done(function(data){
       var foodBoxTemp = data.replace(/food-box-template/, 'food-box-' + idNum)
                             .replace(/foodOption/g, 'foodOption' + idNum);
 
       $('#food-list').append(foodBoxTemp);
 
+      if ($('.image_upload_form_wrapper').css('display') == 'block') {
+        $('.image_upload_form_wrapper').css('display', 'block');
+      }
+
       // 料理の種類が変わった時に料理名のドロップダウンメニューの中身を変更するイベントを設置
       $("#food-box-" + idNum + " > div > div > div > .kind-box").on({change: function() {
           var kindBoxValue = $(this).val();
-          console.log(kindBoxValue);
           var tempId = $(this).parents('[id^=food-box-]').attr('id');
+
           // Ajaxでget-food-name.phpを利用してDBにアクセス
           $.ajax({
             type: "POST",
@@ -29,15 +43,16 @@ $(function() {
             data: {
               item:kindBoxValue
             },
+
           }).done(function(data){
             // DBから引っ張ってきたデータを料理名を選択するoptionにセット
             $('#' + tempId + ' .food_name_box > option').remove();
             for (var i = 0; i < data.length; i++){
               $('.food_name_box').append($('<option>').html(data[i]["japanese"]).val(data[i]["id"]));
             }
+
           }).fail(function(data){
             alert.log('error!!!');
-            console.log(data);
           });
         }
       });
