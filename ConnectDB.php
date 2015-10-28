@@ -2,11 +2,11 @@
 
 class ConnectDB {
   // ↓メンバ変数（クラスの中にあるけど、メソッドの中にないもの）
-  private $db_user = "root";  // ユーザー名
-  private $db_pass = "vagrant";     // パスワード
-  private $db_host = "localhost";   // ホスト名
-  private $db_name = "sotsuron";    // データベース名
-  private $db_type = "mysql";       // データベースの種類
+  private $db_user = "root";
+  private $db_pass = "vagrant";
+  private $db_host = "localhost";
+  private $db_name = "sotsuron";
+  private $db_type = "mysql";
   private $pdo = '';
 
   // コンストラクタは使わなくてもこういう風にかいておこう！
@@ -22,6 +22,7 @@ class ConnectDB {
       die('エラー :' . $Exception->getMessage());
     }
   }
+
 
   public function db_accessor($select, $from, $where){
     try {

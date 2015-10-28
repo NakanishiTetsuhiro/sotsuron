@@ -4,7 +4,6 @@ $(function() {
   $(".image_switcher > input[value~='imgOn']").click(function(){
       $('.image_upload_form_wrapper').css('display', 'block');
   });
-
   $(".image_switcher > input[value~='imgOff']").click(function(){
       $('.image_upload_form_wrapper').css('display', 'none');
   });
@@ -21,7 +20,7 @@ $(function() {
 
     }).done(function(data){
       var foodBoxTemp = data.replace(/food-box-template/, 'food-box-' + idNum)
-                            .replace(/foodOption/g, 'foodOption' + idNum);
+                            .replace(/foodOption/g, 'foodOption[' + idNum + ']');
 
       $('#food-list').append(foodBoxTemp);
 
@@ -56,6 +55,17 @@ $(function() {
           });
         }
       });
+
+
+      // 削除ボタンを押した時のクリックイベントの設定
+      // 1つ追加して、一つ削除する動作を繰り返すと上手くいくが、連続で何個も追加すると、最初の一つしかイベントが設定されない
+      // 全部で１つしかイベントが設定されないのでなんとかしてください。
+      $("#delete_button").click(function () {
+        // console.log("hogehoge");
+        $(this).parent().parent().parent().remove();
+        // console.log($(this).parent().parent().parent());
+      });
+
 
       idNum++;
 

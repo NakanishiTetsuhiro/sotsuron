@@ -73,5 +73,8 @@ h1 {
 
 .lang-box {
   display: inline-block;
-  margin-left: 24px;
+}
+
+.lang-box p:first-child{
+  font-size: 32px;
 }

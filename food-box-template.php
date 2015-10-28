@@ -19,15 +19,14 @@
           $i = 0;
           foreach ($get_type as $key => $value) :
           ?>
-
             <option value="<?php echo $value['type_id'] ?>">
               <?php echo $value['type']; ?>
             </option>
-
           <?php
           $i++;
           endforeach;
           ?>
+
         </select>
       </div>
     </div>
@@ -38,14 +37,13 @@
 
           <?php
           $get_foodname = $db->db_accessor("DISTINCT id, japanese", "Mlang", "id >= 1");
+
           $i = 0;
           foreach ($get_foodname as $key => $value) :
           ?>
-
-          <option value="<?php echo $value['id'] ?>">
-            <?php echo $value['japanese']; ?>
-          </option>
-
+            <option value="<?php echo $value['id'] ?>">
+              <?php echo $value['japanese']; ?>
+            </option>
           <?php
           $i++;
           endforeach;
@@ -67,6 +65,8 @@
       </label>
     </div>
   </div> <!-- /row -->
+
+
   <div class="row">
     <div class="col-md-6">
       <div class="form-group image_upload_form_wrapper">
@@ -82,5 +82,12 @@
         <input type="number" class="form-control" name="price[]" id="price" placeholder="メニューの金額を入力してください">
       </div>
     </div>
-  </div>
+  </div> <!-- /row -->
+
+
+  <div class="row">
+    <div class="col-md-12">
+      <button type="button" id="delete_button" class="btn btn-danger pull-right">削除</button>
+    </div>
+  </div> <!-- /row -->
 </li> <!-- /.item-box -->

@@ -12,11 +12,11 @@ if ('imgOn' === $_POST['imageSwitch']) {
     case 'default_theme':
       header("Location: menu_templates/default_theme_img_on.php");
       break;
-    case 'verticalWriting':
-      header("Location: menu_templates/default_theme_img_on.php");
+    case 'food_theme':
+      header("Location: menu_templates/food_theme_img_on.php");
       break;
-    case 'default_theme':
-      header("Location: menu_templates/default_theme_img_on.php");
+    case 'pink_theme':
+      header("Location: menu_templates/pink_theme_img_on.php");
       break;
     default:
       echo "Error!";
@@ -28,11 +28,11 @@ if ('imgOn' === $_POST['imageSwitch']) {
     case 'default_theme':
       header("Location: menu_templates/default_theme_img_off.php");
       break;
-    case 'verticalWriting':
-      header("Location: menu_templates/default_theme_no_img_off.php");
+    case 'food_theme':
+      header("Location: menu_templates/food_theme_no_img_off.php");
       break;
-    case 'default_theme':
-      header("Location: menu_templates/default_theme_no_img_off.php");
+    case 'pink_theme':
+      header("Location: menu_templates/pink_theme_no_img_off.php");
       break;
     default:
       echo "Error!";

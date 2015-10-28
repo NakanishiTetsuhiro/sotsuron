@@ -86,13 +86,13 @@
                 </div>
                 <div class="col-md-4 col-sm-6">
                   <label class="radio-inline">
-                    <input type="radio" name="menu_theme" value="verticalWriting">縦書き
+                    <input type="radio" name="menu_theme" value="food_theme">フード
                   </label>
                   <img src="img/noimage.gif" alt="No image">
                 </div>
                 <div class="col-md-4 col-sm-6">
                   <label class="radio-inline">
-                    <input type="radio" name="menu_theme" value="verticalWriting">縦書き
+                    <input type="radio" name="menu_theme" value="pink_theme">ピンク
                   </label>
                   <img src="img/noimage.gif" alt="No image">
                 </div>
