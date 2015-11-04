@@ -82,23 +82,26 @@ require_once('../ConnectDB.php');
                 $item[$j] .= "<div class=\"food-option-box\">";
               }
 
-              foreach ($valueOfSESSION as $foodOptionArrayKey => $foodOptionArray) {
+              $itemKey = 0;
 
-                // $foodOptionKeyは使ってない！
+              foreach ($valueOfSESSION as $foodOptionArrayKey => $foodOptionArray) {
                 foreach ($foodOptionArray as $foodOptionKey => $foodOptionValue) {
 
                   if ($foodOptionValue == "misoSoup") {
-                    $item[$foodOptionArrayKey] .= "<p class=\"miso_soup\">味噌汁付き</p>";
+                    $item[$itemKey] .= "<p class=\"miso_soup\">味噌汁付き</p>";
                   }
 
                   if ($foodOptionValue == "rice") {
-                    $item[$foodOptionArrayKey] .= "<p class=\"rice\">ご飯付き</p>";
+                    $item[$itemKey] .= "<p class=\"rice\">ご飯付き</p>";
                   }
 
                   if ($foodOptionValue == "miniSoba") {
-                      $item[$foodOptionArrayKey] .= "<p class=\"mini_soba\">ミニそば付き</p>";
+                      $item[$itemKey] .= "<p class=\"mini_soba\">ミニそば付き</p>";
                   }
                 }
+
+              $itemKey++;
+
               }
 
               for ($j=0; $j < $foodCounter; $j++) {
