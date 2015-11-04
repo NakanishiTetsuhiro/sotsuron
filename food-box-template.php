@@ -90,4 +90,4 @@
       <button type="button" id="delete_button" class="btn btn-danger pull-right">削除</button>
     </div>
   </div> <!-- /row -->
-</li> <!-- /.item-box -->
+</li>

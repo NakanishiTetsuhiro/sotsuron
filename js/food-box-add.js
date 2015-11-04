@@ -11,7 +11,7 @@ $(function() {
 
   var idNum = 0;
 
-  // "品目の追加"ボタンを押した場合の処理
+  // "品目の追加"ボタンを押したときの処理
   $('#btn_add').click(function(){
     $.ajax({
       type: "POST",
@@ -59,16 +59,23 @@ $(function() {
 
       // 削除ボタンを押した時のクリックイベントの設定
       $(document).on('click', '#delete_button', function () {
-        $(this).parent().parent().parent().remove();
-      });
 
+        $(this).parent().parent().parent().slideUp('400', function(){
+          $(this).remove();
+        });
+      });
 
       idNum++;
 
     }).fail(function(data){
       alert('error!!!');
     });
-
-
   });
+
+
+  // Windowの読み込み完了時に自動で１品目追加
+  $(window).load(function() {
+    $('#btn_add').trigger("click");
+  });
+
 });
