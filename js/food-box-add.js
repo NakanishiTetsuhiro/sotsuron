@@ -19,7 +19,8 @@ $(function() {
       url: "food-box-template.php",
 
     }).done(function(data){
-      var foodBoxTemp = data.replace(/food-box-template/, 'food-box-' + idNum)
+      var foodBoxTemp = data.replace(/food-box-template/g, 'food-box-' + idNum)
+                            .replace(/foodBoxId\"/g, 'foodBoxId[]\" value=\"' + idNum + '\"')
                             .replace(/foodOption/g, 'foodOption[' + idNum + ']');
 
       $('#food-list').append(foodBoxTemp);

@@ -2,6 +2,8 @@
 
 
 <li id="food-box-template" class="item-box">
+<input type="hidden" name="foodBoxId">
+
   <div class="row">
     <div class="col-md-4">
       <div class="form-group">
@@ -32,7 +34,7 @@
     </div>
     <div class="col-md-4">
       <div class="form-group">
-        <label for="exampleInputEmail1">料理名</label>
+        <label for="food_name_box">料理名</label>
         <select name="foodNameBox[]" class="food_name_box form-control">
 
           <?php
@@ -63,6 +65,7 @@
       <label class="checkbox-inline">
         <input type="checkbox" name="foodOption[]" value="miniSoba"> ミニそば
       </label>
+      <input type="checkbox" name="foodOption[]" value="none" checked="checked" style="display: none;">
     </div>
   </div> <!-- /row -->
 

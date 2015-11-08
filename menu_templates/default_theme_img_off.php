@@ -1,12 +1,9 @@
 <?php
 session_start();
-
-// Database connect settings loading
 require_once('../ConnectDB.php');
 ?>
 
-
-<!-- <pre><?php var_dump($_SESSION); ?></pre> -->
+<pre><?php var_dump($_SESSION); ?></pre>
 
 
 <!DOCTYPE html>
@@ -23,121 +20,109 @@ require_once('../ConnectDB.php');
       <h1 class="store_name"><?php echo $_SESSION["storeName"]; ?></h1>
       <div class="container">
         <section class="inner-box">
+
           <?php
-          $postElementCount = 0;
           $db = new ConnectDB();
-          $foodCounter = count($_SESSION["foodNameBox"]);
+          $foodCount = count($_SESSION["foodNameBox"]);
 
-          foreach ($_SESSION as $key => $valueOfSESSION) {
-
-            if ($postElementCount == 0) {
-              $item = array();
-
-              for ($j=0; $j < $foodCounter; $j++) {
-                $item[$j] = "<div class=\"item\">";
-              }
-            }
-
-
-            // 選択された言語で料理名を表示
-            if ($key == "langSelect") {
-
-              for ($j=0; $j < $foodCounter; $j++) {
-                $item[$j] .= "<div class=\"lang-box\">";
-              }
-
-              foreach ($valueOfSESSION as $langKey => $lang) {
-
-                if ($lang == "chinese") {
-                  $j = 0;
-
-                  foreach ($_SESSION["foodNameBox"] as $idKey => $id) {
-                    $get_chinese = $db->db_accessor("id, chinese", "Mlang", "id = $id");
-                    $item[$j] .= "<p>".$get_chinese[0]['chinese']."</p>";
-                    $j++;
-                  }
-                }
-
-                if ($lang == "japanese") {
-                  $j = 0;
-
-                  foreach ($_SESSION["foodNameBox"] as $idKey => $id) {
-                    $get_japanese = $db->db_accessor("id, japanese", "Mlang", "id = $id");
-                    $item[$j] .= "<p>".$get_japanese[0]['japanese']."</p>";
-                    $j++;
-                  }
-                }
-              }
-
-              for ($j=0; $j < $foodCounter; $j++) {
-                $item[$j] .= "</div>";
-              }
-            }
+          // $_SESSIONの値を分割
+          $storeName     = $_SESSION['storeName'];
+          $langSelects   = $_SESSION['langSelect'];
+          $foodBoxId     = $_SESSION['foodBoxId'];
+          $tax           = $_SESSION['tax'];
+          $foodNameBoxes = $_SESSION['foodNameBox'];
+          $foodOptions   = $_SESSION['foodOption'];
+          $prices        = $_SESSION['price'];
 
 
-            // 料理にセットで付いてくるオプションを表示
-            if ($key == "foodOption") {
+          $item = array();
 
-              for ($j=0; $j < $foodCounter; $j++) {
-                $item[$j] .= "<div class=\"food-option-box\">";
-              }
-
-              $itemKey = 0;
-
-              foreach ($valueOfSESSION as $foodOptionArrayKey => $foodOptionArray) {
-                foreach ($foodOptionArray as $foodOptionKey => $foodOptionValue) {
-
-                  if ($foodOptionValue == "misoSoup") {
-                    $item[$itemKey] .= "<p class=\"miso_soup\">味噌汁付き</p>";
-                  }
-
-                  if ($foodOptionValue == "rice") {
-                    $item[$itemKey] .= "<p class=\"rice\">ご飯付き</p>";
-                  }
-
-                  if ($foodOptionValue == "miniSoba") {
-                      $item[$itemKey] .= "<p class=\"mini_soba\">ミニそば付き</p>";
-                  }
-                }
-
-              $itemKey++;
-
-              }
-
-              for ($j=0; $j < $foodCounter; $j++) {
-                $item[$j] .= "</div>";
-              }
-            }
+          for ($j=0; $j < $foodCount; $j++) {
+            $item[$j] = "<div class=\"item\">";
+          }
 
 
-            // 金額を表示
-            if ($key == "price") {
+          // 選択された言語で料理名を表示
+          for ($j=0; $j < $foodCount; $j++) {
+            $item[$j] .= "<div class=\"lang-box\">";
+          }
+
+          foreach ($langSelects as $key => $language) {
+            if ($language == "chinese") {
               $j = 0;
-
-              foreach ($valueOfSESSION as $priceKey => $price) {
-
-                if ($_SESSION["tax"] == "included") {
-                  $item[$j] .= "<p class=\"price\">".$price."YEN</p>";
-                } elseif ($_SESSION["tax"] == "exclusive") {
-                  $item[$j] .= "<p class=\"price\">".$price."YEN +TAX</p>";
-                }
+              foreach ($foodNameBoxes as $Key => $id) {
+                $get_chinese = $db->db_accessor("id, chinese", "Mlang", "id = $id");
+                $item[$j] .= "<p>".$get_chinese[0]['chinese']."</p>";
                 $j++;
               }
             }
 
+            if ($language == "japanese") {
+              $j = 0;
+              foreach ($foodNameBoxes as $Key => $id) {
+                $get_japanese = $db->db_accessor("id, japanese", "Mlang", "id = $id");
+                $item[$j] .= "<p>".$get_japanese[0]['japanese']."</p>";
+                $j++;
+              }
+            }
+          }
 
-              // タグを閉じる処理と出力の処理
-              $postCounter = count($_SESSION);
-              $postCounter--;
-              if ($postElementCount == $postCounter) {
-                for ($j=0; $j < $foodCounter; $j++) {
-                  $item[$j] .= "</div>";
-                  echo $item[$j];
+          for ($j=0; $j < $foodCount; $j++) {
+            $item[$j] .= "</div>";
+          }
+
+
+          // 料理にセットで付いてくるオプションを表示
+          for ($j=0; $j < $foodCount; $j++) {
+            $item[$j] .= "<div class=\"food-option-box\">";
+          }
+
+          $j = 0;
+
+          foreach ($foodOptions as $key => $foodOptionArray) {
+            if ($foodBoxId[$j] == $key) {
+              foreach ($foodOptionArray as $key => $foodOption) {
+                if ($foodOption == "misoSoup") {
+                  $item[$j] .= "<p class=\"miso_soup\">味噌汁付き</p>";
+                }
+
+                if ($foodOption == "rice") {
+                  $item[$j] .= "<p class=\"rice\">ご飯付き</p>";
+                }
+
+                if ($foodOption == "miniSoba") {
+                    $item[$j] .= "<p class=\"mini_soba\">ミニそば付き</p>";
                 }
               }
-            $postElementCount++;
+            }
+            $j++;
           }
-          ?>
+
+
+          for ($j=0; $j < $foodCount; $j++) {
+            $item[$j] .= "</div>";
+          }
+
+
+        // 金額を表示
+        foreach ($prices as $key => $price) {
+
+          if ($tax == "included") {
+            $item[$key] .= "<p class=\"price\">".$price."YEN</p>";
+
+          } elseif ($tax == "exclusive") {
+            $item[$key] .= "<p class=\"price\">".$price."YEN +TAX</p>";
+          }
+        }
+
+
+        // タグを閉じる処理と出力の処理
+        for ($j=0; $j < $foodCount; $j++) {
+          $item[$j] .= "</div>";
+          echo $item[$j];
+        }
+        ?>
+
         </section>
       </div>
     </div>
