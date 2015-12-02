@@ -12,14 +12,12 @@ h1 {
   border: 4px solid;
   background-color: #F3E5CB;
   padding: 8px 16px 16px 16px;
-  /*height:251mm !IMPORTANT;*/
 }
 
 .content-print {
   top:0 !IMPORTANT;
   left:0 !IMPORTANT;
   width:172mm !IMPORTANT;
-  /*height:251mm !IMPORTANT;*/
 }
 
 .store_name {
@@ -48,7 +46,6 @@ h1 {
 }
 
 .price {
-  /*padding-left: 464px;*/
   width: 120px;
   margin-left: auto;
 }
@@ -72,9 +69,19 @@ h1 {
 }
 
 .lang-box {
+  padding-left: 16px;
   display: inline-block;
 }
 
 .lang-box p:first-child{
   font-size: 32px;
+}
+
+#default_img_on .img_box {
+  width: 120px;
+  display: inline-block;
+}
+
+#default_img_on .img_box img {
+  width: 100%;
 }

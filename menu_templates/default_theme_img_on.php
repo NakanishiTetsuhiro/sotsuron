@@ -15,7 +15,7 @@ require_once('../ConnectDB.php');
     <link rel="stylesheet" type="text/css" href="../css/reset.css">
     <link rel="stylesheet" href="../css/result.css">
   </head>
-  <body id="default_on" class="content-print">
+  <body id="default_img_on" class="content-print">
     <div class="wrapper">
       <h1 class="store_name"><?php echo $_SESSION["storeName"]; ?></h1>
       <div class="container">
