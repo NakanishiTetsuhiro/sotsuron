@@ -74,7 +74,7 @@
     <div class="col-md-6">
       <div class="form-group image_upload_form_wrapper">
         <label for="image_upload_form">画像</label>
-        <input type="file" class="image_upload_form">
+        <input type="file" name="upImgFile[]" class="image_upload_form">
         <p class="help-block">料理の画像を選択してください</p>
       </div>
     </div>

@@ -1,10 +1,13 @@
-<h1>POST</h1>
-<pre><?php var_dump($_POST); ?></pre>
-
 <?php
 session_start();
 
 $_SESSION = $_POST;
+
+// To store binary data of the image
+foreach ($_FILES['upImgFile']['tmp_name'] as $key => $value) {
+  $_SESSION['upImgFile'][$key] = file_get_contents($value);
+}
+
 
 if ('imgOn' === $_POST['imageSwitch']) {
 
@@ -40,5 +43,13 @@ if ('imgOn' === $_POST['imageSwitch']) {
 }
 ?>
 
+<!--
+<h1>POST</h1>
+<pre><?php var_dump($_POST); ?></pre>
+
+<h1>FILE</h1>
+<pre><?php var_dump($_FILES); ?></pre>
+
 <h1>SESSION</h1>
 <pre> <?php var_dump($_SESSION); ?> </pre>
+-->

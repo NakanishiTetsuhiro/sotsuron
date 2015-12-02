@@ -29,7 +29,7 @@
         </div><!-- /top -->
 
         <section class="container">
-            <form action="result.php" method="post" accept-charset="utf-8">
+            <form action="result.php" method="post" enctype="multipart/form-data" accept-charset="utf-8">
             <div class="item-box">
               <div class="row">
                 <div class="col-md-4">
