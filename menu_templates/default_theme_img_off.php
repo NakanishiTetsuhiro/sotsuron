@@ -3,9 +3,6 @@ session_start();
 require_once('../ConnectDB.php');
 ?>
 
-<pre><?php var_dump($_SESSION); ?></pre>
-
-
 <!DOCTYPE html>
 <html>
   <head>
@@ -14,6 +11,7 @@ require_once('../ConnectDB.php');
     <title>メニュー表出力結果</title>
     <link rel="stylesheet" type="text/css" href="../css/reset.css">
     <link rel="stylesheet" href="../css/result.css">
+    <link rel="stylesheet" href="//fonts.googleapis.com/earlyaccess/notosansjapanese.css">
   </head>
   <body class="content-print">
     <div class="wrapper">
@@ -98,7 +96,6 @@ require_once('../ConnectDB.php');
             $j++;
           }
 
-
           for ($j=0; $j < $foodCount; $j++) {
             $item[$j] .= "</div>";
           }
@@ -108,10 +105,10 @@ require_once('../ConnectDB.php');
         foreach ($prices as $key => $price) {
 
           if ($tax == "included") {
-            $item[$key] .= "<p class=\"price\">".$price."YEN</p>";
+            $item[$key] .= "<p class=\"price\">".$price." YEN</p>";
 
           } elseif ($tax == "exclusive") {
-            $item[$key] .= "<p class=\"price\">".$price."YEN +TAX</p>";
+            $item[$key] .= "<p class=\"price\">".$price." YEN <span class=\"min-char\">+TAX</span></p>";
           }
         }
 

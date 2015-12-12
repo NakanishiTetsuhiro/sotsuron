@@ -3,9 +3,6 @@ session_start();
 require_once('../ConnectDB.php');
 ?>
 
-<!-- <pre><?php var_dump($_SESSION); ?></pre> -->
-
-
 <!DOCTYPE html>
 <html>
   <head>
@@ -14,6 +11,7 @@ require_once('../ConnectDB.php');
     <title>メニュー表出力結果</title>
     <link rel="stylesheet" type="text/css" href="../css/reset.css">
     <link rel="stylesheet" href="../css/result.css">
+    <link rel="stylesheet" href="//fonts.googleapis.com/earlyaccess/notosansjapanese.css">
   </head>
   <body id="default_img_on" class="content-print">
     <div class="wrapper">
@@ -62,6 +60,7 @@ require_once('../ConnectDB.php');
 
           for ($j=0; $j < $foodCount; $j++) {
             $item[$j] .= "</div>";
+            $item[$j] .= "<div class=\"middle-box\">";
           }
 
 
@@ -123,6 +122,8 @@ require_once('../ConnectDB.php');
 
 
           for ($j=0; $j < $foodCount; $j++) {
+            $item[$j] .= "</div>";
+            // from middle-box
             $item[$j] .= "</div>";
           }
 
