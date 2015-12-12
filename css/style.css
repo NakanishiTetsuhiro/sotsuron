@@ -79,13 +79,20 @@ header {
           border-radius: 8px;
 }
 
+.theme_thumbnail {
+  display: inline-block;
+  width: 180px;
+}
 
-/*------------------
-  #setting (setting.html)
--------------------*/
+.theme_thumbnail img{
+  width: 100%;
+}
+
 .image_upload_form_wrapper {
   display: none;
 }
+
+
 
 
 /*------------------

@@ -1,11 +1,9 @@
-body {
-  font-family: Tahoma, "メイリオ", Meiryo, "ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro", Osaka, "ＭＳ Ｐゴシック", sans-serif;
+body { font-family: 'Noto Sans Japanese', serif;
+  /*font-family: Tahoma, "メイリオ", Meiryo, "ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro", Osaka, "ＭＳ Ｐゴシック", sans-serif;*/
   /*font-family: 'Kozuka Gothic Pro B', 'Hiragino Kaku Gothic ProN';*/
 }
 
-h1 {
-  color: #6b3710;
-}
+h1 { color: #6b3710; }
 
 .wrapper {
   margin: 8px;
@@ -31,9 +29,7 @@ h1 {
   background: rgba(255,255,255,0.45);
 }
 
-.container {
-  overflow: hidden;
-}
+.container { overflow: hidden; }
 
 /* clearfix */
 .container:before, .container:after {
@@ -41,26 +37,15 @@ h1 {
   display: table;
 }
 
-.container:after {
-  clear: both;
-}
+.container:after { clear: both; }
 
-.price {
-  width: 120px;
-  margin-left: auto;
-}
+.kind-box { font-size: 32px; }
 
-.kind-box {
-  font-size: 32px;
-}
-
-.item h2 {
-  font-size: 24px;
-}
+.item h2 { font-size: 24px; }
 
 .item {
   padding-left: 16px;
-  margin-bottom: 32px;
+  margin-bottom: 40px;
 }
 
 .food-img {
@@ -69,19 +54,55 @@ h1 {
 }
 
 .lang-box {
-  padding-left: 16px;
   display: inline-block;
+  width: 40%;
 }
 
-.lang-box p:first-child{
-  font-size: 32px;
+.lang-box p:first-child{ font-size: 32px; }
+
+.price {
+  /*display: inline-block;*/
+  /*width: 32%;*/
+  font-size: 26px;
+  text-align: right;
+  vertical-align: top;
 }
+
+.food-option-box {
+  /*display: inline-block;*/
+  /*width: 20%;*/
+  /*text-align: right;*/
+}
+
+.food-option-box p {
+  display: inline-block;
+  margin-right: 16px;
+}
+
+.min-char { font-size: 16px; }
+
 
 #default_img_on .img_box {
-  width: 120px;
+  width: 30%;
   display: inline-block;
 }
 
-#default_img_on .img_box img {
+#default_img_on .img_box img { width: 100%; }
+
+#default_img_on .middle-box {
+  display: inline-block;
+  margin-left: 4%;
+  width: 50%;
+}
+
+#default_img_on .lang-box {
   width: 100%;
+}
+
+.food_theme .wrapper {
+  background-image: url(../img/template_background_image/food.png);
+}
+
+.pink_theme .wrapper {
+  background-image: url(../img/template_background_image/pink.png);
 }
