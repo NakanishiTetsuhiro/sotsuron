@@ -82,19 +82,25 @@
                   <label class="radio-inline">
                     <input type="radio" name="menu_theme" value="default_theme" checked="checked">デフォルト
                   </label>
-                  <img src="img/noimage.gif" alt="No image">
+                  <div class="theme_thumbnail">
+                    <img src="img/thumbnail/default_theme.png" alt="default theme">
+                  </div>
                 </div>
                 <div class="col-md-4 col-sm-6">
                   <label class="radio-inline">
                     <input type="radio" name="menu_theme" value="food_theme">フード
                   </label>
-                  <img src="img/noimage.gif" alt="No image">
+                  <div class="theme_thumbnail">
+                    <img src="img/thumbnail/food_theme.png" alt="food theme">
+                  </div>
                 </div>
                 <div class="col-md-4 col-sm-6">
                   <label class="radio-inline">
                     <input type="radio" name="menu_theme" value="pink_theme">ピンク
                   </label>
-                  <img src="img/noimage.gif" alt="No image">
+                  <div class="theme_thumbnail">
+                    <img src="img/thumbnail/pink_theme.png" alt="pink theme">
+                  </div>
                 </div>
               </div>
             </div> <!-- /item-box -->
