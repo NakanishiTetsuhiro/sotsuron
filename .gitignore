@@ -3,4 +3,5 @@
 .DS_Store
 bootstrap-3.3.4-dist/
 img/dammy/
+img/food/
 ConnectDB.php
