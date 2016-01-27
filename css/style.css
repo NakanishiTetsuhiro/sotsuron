@@ -31,7 +31,8 @@ ul {
 
 .top {
   width: 100%;
-  background: url("../img/dammy/MN_ohana_64_6.jpg") no-repeat;
+  background: url("../img/food/soba.jpg") no-repeat;
+  background-position: center;
   -webkit-background-size: cover;
        -o-background-size: cover;
           background-size: cover;
